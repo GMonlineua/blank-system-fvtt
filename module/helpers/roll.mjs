@@ -9,17 +9,15 @@ export async function createRollDialog(actor) {
         label: "Roll",
         icon: '<i class="fas fa-dice"></i>',
         callback: async (html) => {
-          try {
-            const tension = document.getElementById('tension').value;
-            const push = document.getElementById('push').checked;
-            const help = document.getElementById('help').checked;
-            const betray = document.getElementById('betray').checked;
-            console.log(tension, push, help, betray)
+          const tension = document.getElementById('tension').value;
+          const push = document.getElementById('push').checked;
+          const scar = document.getElementById('help').checked;
+          const help = document.getElementById('help').checked;
+          const betray = document.getElementById('betray').checked;
 
-            await roll(actor);
-          } catch (error) {
-            console.error("Error submit in roll dialog:", error);
-          }
+          const plusOne = [push, scar, help];
+
+          await roll(actor, tension, betray, plusOne);
         },
       },
       cancel: {
@@ -34,6 +32,20 @@ export async function createRollDialog(actor) {
   dialog.render(true);
 }
 
-async function roll(actor, rollData) {
-  console.log(data)
+async function roll(actor, tension, betray, plusOne) {
+  let dices = 1;
+  if (betray) {
+    dices = 3;
+  } else {
+    for (const element of plusOne) {
+      dices += (element ? 1 : 0);
+    }
+  }
+
+  const roll = new Roll(`${dices}d6`);
+  roll.toMessage({
+    speaker: ChatMessage.getSpeaker({ actor: actor }),
+    flavor: tension,
+    rollMode: game.settings.get('core', 'rollMode')
+  });
 }

@@ -1,7 +1,7 @@
 {
   "id": "blank",
   "title": "Blank System",
-  "description": "Blank System from GMonline",
+  "description": "System for Quietus from GMonline",
   "version": "1.1",
   "compatibility": {
     "minimum": "11",
@@ -39,7 +39,7 @@
   "gridDistance": 1,
   "gridUnits": "m",
   "url": "https://github.com/GMonlineua/Blank_System",
-  "manifest": "https://raw.githubusercontent.com/GMonlineua/Blank_System/master/system.json",
-  "download": "https://codeload.github.com/GMonlineua/Blank_System/zip/refs/heads/master",
-  "license": "https://github.com/GMonlineua/Blank_System/blob/master/LICENSE.md"
+  "manifest": "https://raw.githubusercontent.com/GMonlineua/Blank_System/quietus/system.json",
+  "download": "https://codeload.github.com/GMonlineua/Blank_System/zip/refs/heads/quietus",
+  "license": "https://github.com/GMonlineua/Blank_System/blob/quietus/LICENSE.md"
 }

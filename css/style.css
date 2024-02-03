@@ -8,6 +8,15 @@
   margin-right: 5px;
 }
 
+.roll-dialog .modifiers {
+  margin-bottom: 10px;
+  gap: 0;
+}
+.roll-dialog .modifiers input {
+  position: relative;
+  top: 5px;
+}
+
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
