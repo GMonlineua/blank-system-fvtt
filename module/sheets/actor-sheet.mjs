@@ -1,3 +1,5 @@
+import { createRollDialog } from "../helpers/roll.mjs";
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -10,9 +12,14 @@ export class BlankActorSheet extends ActorSheet
     return mergeObject(super.defaultOptions, {
       classes: ["blank", "sheet", "actor"],
       template: "systems/blank/templates/character-sheet.hbs",
-      width: 700,
-      height: 800
+      width: 600,
+      height: 700
     });
+  }
+
+  /** @override */
+  get template() {
+    return `systems/blank/templates/${this.actor.type}-sheet.hbs`;
   }
 
   /** @override */
@@ -127,6 +134,21 @@ export class BlankActorSheet extends ActorSheet
   }
 
   /* -------------------------------------------- */
+
+  _getHeaderButtons() {
+    let buttons = super._getHeaderButtons();
+    if (this.actor.isOwner) {
+      buttons = [
+        {
+          label: "Roll",
+          class: "quietus-roll",
+          icon: "fas fa-dice",
+          onclick: (ev) => createRollDialog(this.actor)
+        }
+      ].concat(buttons);
+    }
+    return buttons;
+  }
 
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset

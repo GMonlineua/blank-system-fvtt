@@ -4,19 +4,9 @@
     <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
     <div class="description-block">
-      <div class="resources flexrow">
-        <div class="resource">
-          <label for="system.anxiety" class="resource-label">Anxiety:</label>
-          <input type="number" name="system.anxiety" value="{{system.anxiety}}" data-dtype="Number"/>
-        </div>
-        <div class="resource">
-          <label for="system.despair" class="resource-label">Despair:</label>
-          <input type="number" name="system.despair" value="{{system.despair}}" data-dtype="Number"/>
-        </div>
-        <div class="resource">
-          <label for="system.hope" class="resource-label">Hope:</label>
-          <input type="number" name="system.hope" value="{{system.hope}}" data-dtype="Number"/>
-        </div>
+      <div class="resource">
+        <label for="system.dread" class="resource-label">Dread:</label>
+        <input type="number" name="system.dread" value="{{system.dread}}" data-dtype="Number"/>
       </div>
       <h2>{{localize 'BLANK.Description'}}</h2>
       {{editor system.description target="system.description" button=true owner=owner editable=editable}}

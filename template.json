@@ -1,7 +1,7 @@
 {
   "Actor":
   {
-    "types": ["character"],
+    "types": ["character", "horror"],
     "templates": {
       "base": {
         "description": "",
@@ -9,7 +9,14 @@
       }
     },
     "character": {
-      "templates": ["base"]
+      "templates": ["base"],
+      "anxiety": 0,
+      "despair": 0,
+      "hope": 0
+    },
+    "horror": {
+      "templates": ["base"],
+      "dread": 0
     }
   },
   "Item": {

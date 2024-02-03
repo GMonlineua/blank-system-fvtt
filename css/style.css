@@ -245,7 +245,7 @@ input.clear-input:focus {
 }
 
 .editor {
-  min-height: 200px;
+  min-height: 150px;
 }
 
 /* Styles limited to system sheets */
@@ -279,8 +279,8 @@ input.clear-input:focus {
 }
 .blank .sheet-header img.profile-img {
   flex: 1;
-  height: 300px;
-  min-width: 300px;
+  height: 200px;
+  min-width: 200px;
   padding-right: 10px;
   border: none;
 }
@@ -300,7 +300,7 @@ input.clear-input:focus {
 }
 .blank .sheet-body .editor {
   min-height: 75px;
-  height: 250px;
+  height: 200px;
   padding: 0 5px;
   border: 1px solid #b5b3a4;
 }
