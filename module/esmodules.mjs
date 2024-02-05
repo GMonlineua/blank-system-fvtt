@@ -39,18 +39,16 @@ Hooks.on("renderChatMessage", renderChatMessage);
 /*  Handlebars Helpers                          */
 /* -------------------------------------------- */
 
-Handlebars.registerHelper("load", function(data) {
-  let load = game.i18n.localize("ROGUE.Unloaded");
-  if (data.free >= 5) {
-    load = game.i18n.localize("ROGUE.Unloaded")
-  } else if (data.free >= 2 && data.free < 5) {
-    load = game.i18n.localize("ROGUE.LightlyLoaded")
-  } else if (data.free >= 0 && data.free < 2) {
-    load = game.i18n.localize("ROGUE.HeavilyLoaded")
-  } else if (data.free >= -2 && data.free < 0) {
-    load = game.i18n.localize("ROGUE.Overloaded")
-  } else {
-    load = game.i18n.localize("ROGUE.MoveBlocked")
+Handlebars.registerHelper('getStyle', function(dice) {
+  let style = ""
+
+  if (dice.isResult) {
+    if (dice.value == 6) {
+      style = 'color: #18520b;filter: sepia(0.5) hue-rotate(60deg);'
+    } else if (dice.value < 4) {
+      style = 'color: #aa0200;filter: sepia(0.5) hue-rotate(-60deg);'
+    }
   }
-  return load;
+
+  return style
 });

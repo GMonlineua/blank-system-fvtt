@@ -1,0 +1,17 @@
+<div class="roll-message">
+  <h1>{{tension}}</h1>
+
+  <div class="grid-2col">
+    <ol class="dice-rolls">
+      {{#each dice }}
+        <li class="dice" style="{{getStyle this}}">{{this.value}}</li>
+      {{/each}}
+    </ol>
+
+    <div class="roll-result">
+      {{result}}
+    </div>
+  </div>
+
+  <div class="roll-message">{{resultMessage}}</div>
+</div>
